@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                         	<div>
                                 	<h3>${doc.data().title}</h3>
                                 	<p>${doc.data().description}</p>
-                                	<img id="showImg source="${doc.data().image}" alt="no image">
+                                	<img id="showImg source="${doc.data().image}" alt="no image"/>
                         		<button class ="btn-delete" data-id="${doc.id}">Eliminar</button>
 					<button class ="btn-edit" data-id="${doc.id}">Editar</button>
 				</div> 
