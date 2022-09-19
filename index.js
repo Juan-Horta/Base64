@@ -52,25 +52,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 	})
 })
 
-
-const toBase64 = (file) =>
-    new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = () => resolve(reader.result)
-        reader.onerror = (error) => reject(error)
-    })
-
-async function uploadImage() {
-    image = await toBase64(taskForm['task-image'].files[0])
-}
-
 taskForm.addEventListener('submit', (e) => {
 	e.preventDefault()
 	
 	const title = taskForm['task-title']
 	const description = taskForm['task-description']
-	uploadImage()
+	const image = uploadImage()
 	
 	console.log(image)
 
@@ -84,3 +71,15 @@ taskForm.addEventListener('submit', (e) => {
 
 	taskForm.reset()
 })
+
+async function uploadImage() {
+    return await toBase64(taskForm['task-image'].files[0])
+}
+
+const toBase64 = (file) =>
+    new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = () => resolve(reader.result)
+        reader.onerror = (error) => reject(error)
+    })
