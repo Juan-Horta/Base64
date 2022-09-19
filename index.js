@@ -6,6 +6,7 @@ const taskForm = document.getElementById('task-form')
 let editStatus = false
 let id = ''
 let base64String = ''
+let image = ''
 
 window.addEventListener('DOMContentLoaded', async () => {
 	
@@ -61,7 +62,7 @@ const toBase64 = (file) =>
     })
 
 async function uploadImage() {
-    image = toBase64(taskForm['task-image'].files[0]).then(image64 => (image = image64))
+    image = await toBase64(taskForm['task-image'].files[0])
 }
 
 taskForm.addEventListener('submit', (e) => {
