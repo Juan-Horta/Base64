@@ -68,7 +68,7 @@ taskForm.addEventListener('submit', (e) => {
 	const description = taskForm['task-description']
 	toBase64(taskForm['task-image'].files[0]).then(image64 => (image = image64))
 	
-	console.log(image)
+	console.log(image64)
 
 	if(editStatus){
 		updateTask(id, {title:title.value, description:description.value, image:image})
