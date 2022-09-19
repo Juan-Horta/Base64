@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+                <meta charset="UTF-8">
+                <title>Maquina 1 - CRUD Firebase</title>
+        </head>
+        <body>
+                <h1>Maquina 1</h1>
+
+                <form id="task-form">
+                        <label for="title">Título:</label>
+                        <input type="text" placeholder="Tíulo del objeto" id="task-title"/>
+
+                        <label for="descriptioan">Descripción:</label>
+                        <textarea id=task-description rows="3" placeholder="Descripción el objeto"></textarea>
+			
+			<label for= "image">Imágen:</label>
+			<input type="file" id="task-image"/>
+
+                        <button id="btn-task-save">Guardar</button>
+                </form>
+
+                <div id="task-container"></div>
+
+                <script type="module" src="./index.js"></script>
+        </body>
+</html>
