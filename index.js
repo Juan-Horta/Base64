@@ -52,12 +52,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 	})
 })
 
-taskForm.addEventListener('submit', (e) => {
+taskForm.addEventListener('submit', async (e) => {
 	e.preventDefault()
 	
 	const title = taskForm['task-title']
 	const description = taskForm['task-description']
-	const image = uploadImage()
+	const image = await uploadImage()
 	
 	console.log(image)
 
