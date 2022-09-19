@@ -15,11 +15,14 @@ window.addEventListener('DOMContentLoaded', async () => {
 		let html = ''
 
         	querySnapshot.forEach(doc => {
+
+					let decrypted = CryptoJS.AES.decrypt(doc.data().image, "zIV#Khn@U2P$)eWG").toString();
+
                 	html += `
                         	<div>
                                 	<h3>${doc.data().title}</h3>
                                 	<p>${doc.data().description}</p>
-                                	<img id="showImg" src='${doc.data().image}' alt="no image"/>
+                                	<img id="showImg" src='${decrypted}' alt="no image"/>
                         		<button class ="btn-delete" data-id="${doc.id}">Eliminar</button>
 					<button class ="btn-edit" data-id="${doc.id}">Editar</button>
 				</div> 
@@ -60,10 +63,10 @@ taskForm.addEventListener('submit', async (e) => {
 	const description = taskForm['task-description']
 	const image = await uploadImage()
 	
-	console.log(image)
+	let encrypted = CryptoJS.AES.encrypt(image, "zIV#Khn@U2P$)eWG").toString();
 
 	if(editStatus){
-		updateTask(id, {title:title.value, description:description.value, image:image})
+		updateTask(id, {title:title.value, description:description.value, image:encrypted})
 		editStatus = false
 		taskForm['btn-task-save'].innerText = 'Guardar'
 	} else {
