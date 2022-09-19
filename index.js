@@ -70,7 +70,7 @@ taskForm.addEventListener('submit', async (e) => {
 		editStatus = false
 		taskForm['btn-task-save'].innerText = 'Guardar'
 	} else {
-		saveTask(title.value, description.value, image)
+		saveTask(title.value, description.value, encrypted)
 	}
 
 	taskForm.reset()
