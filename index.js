@@ -51,7 +51,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 	})
 })
 
-const toBase64 = async (file) =>
+
+const toBase64 = (file) =>
     new Promise((resolve, reject) => {
         const reader = new FileReader()
         reader.readAsDataURL(file)
@@ -59,16 +60,18 @@ const toBase64 = async (file) =>
         reader.onerror = (error) => reject(error)
     })
 
+async function uploadImage() {
+    image = toBase64(taskForm['task-image'].files[0]).then(image64 => (image = image64))
+}
+
 taskForm.addEventListener('submit', (e) => {
 	e.preventDefault()
 	
-	let image = ''
-	
 	const title = taskForm['task-title']
 	const description = taskForm['task-description']
-	toBase64(taskForm['task-image'].files[0]).then(image64 => (image = image64))
+	uploadImage()
 	
-	console.log(image64)
+	console.log(image)
 
 	if(editStatus){
 		updateTask(id, {title:title.value, description:description.value, image:image})
