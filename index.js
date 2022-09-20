@@ -65,7 +65,7 @@ taskForm.addEventListener('submit', async (e) => {
 	const description = taskForm['task-description']
 	const image = await uploadImage()
 	
-	let encrypted = crypto.AES.encrypt(JSON.stringify({ image }), 'zIV#Khn@U2P$)eWG').toString();;
+	let encrypted = crypto.AES.encrypt(JSON.stringify(image) , 'zIV#Khn@U2P$)eWG').toString()
 
 	if(editStatus){
 		updateTask(id, {title:title.value, description:description.value, image:encrypted})
