@@ -21,6 +21,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 					console.log(doc.data().title)
 					console.log(doc.data().description)
 					console.log(doc.data().image)
+					console.log("------------------------------------------------")
+					console.log(decrypted)
 
                 	html += `
                         	<div>
