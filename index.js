@@ -16,13 +16,13 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         	querySnapshot.forEach(doc => {
 
-					let decrypted = CryptoJS.AES.decrypt(doc.data().image, "zIV#Khn@U2P$)eWG").toString(CryptoJS.enc.Base64)
+					let decrypted = CryptoJS.AES.decrypt(doc.data().image, "zIV#Khn@U2P$)eWG").toString(CryptoJS.enc.Utf8)
 
                 	html += `
                         	<div>
                                 	<h3>${doc.data().title}</h3>
                                 	<p>${doc.data().description}</p>
-                                	<img id="showImg" src="${decrypted}" alt="no img"/>
+                                	<img id="showImg" src=${decrypted} alt="no img"/>
                         		<button class ="btn-delete" data-id="${doc.id}">Eliminar</button>
 					<button class ="btn-edit" data-id="${doc.id}">Editar</button>
 				</div> 
