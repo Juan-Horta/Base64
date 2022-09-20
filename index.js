@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         	querySnapshot.forEach(doc => {
 
-					let imageInDB = doc.Data().image
+					let imageInDB = doc.data().image
 					let decrypted = CryptoJS.AES.decrypt(imageInDB, "zIV#Khn@U2P$)eWG").toString(CryptoJS.enc.Utf8)
 
                 	html += `
