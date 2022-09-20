@@ -18,6 +18,10 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 					const decrypted = CryptoJS.AES.decrypt(doc.data().image, "zIV#Khn@U2P$)eWG").toString(CryptoJS.enc.Utf8)
 
+					console.log(doc.data().title)
+					console.log(doc.data().description)
+					console.log(doc.data().image)
+
                 	html += `
                         	<div>
                                 	<h3>${doc.data().title}</h3>
