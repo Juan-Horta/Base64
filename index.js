@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         	querySnapshot.forEach(doc => {
 
-					const decrypted = CryptoJS.AES.decrypt(doc.data().image.toString(), "zIV#Khn@U2P$)eWG").toString(CryptoJS.enc.Utf8)
+					const decrypted = CryptoJS.AES.decrypt(doc.data().image, "zIV#Khn@U2P$)eWG").toString(CryptoJS.enc.Utf8)
 
 					console.log(decrypted)
 
@@ -65,7 +65,7 @@ taskForm.addEventListener('submit', async (e) => {
 	const description = taskForm['task-description']
 	const image = await uploadImage()
 	
-	let encrypted = crypto.AES.encrypt(JSON.stringify(image) , 'zIV#Khn@U2P$)eWG').toString()
+	let encrypted = crypto.AES.encrypt(image,'zIV#Khn@U2P$)eWG').toString()
 
 	if(editStatus){
 		updateTask(id, {title:title.value, description:description.value, image:encrypted})
